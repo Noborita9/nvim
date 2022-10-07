@@ -48,5 +48,8 @@ return require('packer').startup(function()
   })
   use ('nvim-treesitter/nvim-treesitter-context')
   use ("p00f/nvim-ts-rainbow")
+  -- Git intrgrations
+  use ("lewis6991/gitsigns.nvim")
+
   -- Others
 end)
