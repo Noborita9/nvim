@@ -58,8 +58,10 @@ return require("packer").startup(function()
 	-- Git intrgrations
 	use("lewis6991/gitsigns.nvim")
 
-  -- Navigation
-  use ('ThePrimeagen/harpoon')
+	-- Navigation
+	use("ThePrimeagen/harpoon")
 
+	-- GOTTA GO FAST
+	use("lewis6991/impatient.nvim")
 	-- Others
 end)

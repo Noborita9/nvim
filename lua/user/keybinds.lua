@@ -70,5 +70,8 @@ keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", opts)
 -- Harpoon 
 keymap("n", "<Leader>h", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
 keymap("n", "<Leader>m", ":lua require('harpoon.mark').add_file()<CR>", opts)
-keymap("n", "<Leader>m", ":lua require('harpoon.ui').nav_file(1)", opts)
+keymap("n", "<Leader>a", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
+keymap("n", "<Leader>s", ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
+keymap("n", "<Leader>d", ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
+keymap("n", "<Leader>f", ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
 

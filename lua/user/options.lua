@@ -31,7 +31,9 @@ local options = {
 	writebackup 	 = false,
 	expandtab      = true,
   numberwidth    = 4,
-  signcolumn     = "yes"
+  signcolumn     = "yes",
+  lazyredraw     = true,
+  ttyfast        = true,
 }
 
 vim.opt.shortmess:append("c")
