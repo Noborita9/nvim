@@ -5,3 +5,4 @@ end
 
 require("user.lsp.mason")
 require("user.lsp.config")
+require("user.lsp.null_ls")

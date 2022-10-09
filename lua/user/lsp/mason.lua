@@ -16,6 +16,7 @@ end
 local on_attach_func = function ()
   vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer = 0})
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer = 0})
+  vim.keymap.set("n", "lf", vim.lsp.buf.format, {buffer = 0})
 end
 
 -- for _, server in pairs
