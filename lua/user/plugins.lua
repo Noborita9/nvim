@@ -11,6 +11,7 @@ return require("packer").startup(function()
 	use("rebelot/kanagawa.nvim") -- 7/8
 	use("mhartington/oceanic-next") -- 8/10
 	use("sainnhe/edge") -- 8/10
+	use("Rigellute/shades-of-purple.vim")
 
 	-- File Explorer
 	use({
@@ -54,7 +55,6 @@ return require("packer").startup(function()
 	})
 
 	use("nvim-treesitter/nvim-treesitter-context")
-	use("p00f/nvim-ts-rainbow")
 	-- Git intrgrations
 	use("lewis6991/gitsigns.nvim")
 
