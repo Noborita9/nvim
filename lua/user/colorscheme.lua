@@ -1,10 +1,11 @@
-vim.cmd [[
+vim.cmd([[
 try
-  colorscheme tokyonight-night 
-  hi Normal guibg=NONE ctermbg=NONE
+colorscheme tokyonight
+hi Normal guibg=NONE ctermbg=NONE
+hi EndOfBuffer guibg=NONE ctermbg=NONE
 catch /^Vim\%((\a\+)\)\=:E185/
-  colorscheme default
-  set background=dark
+colorscheme default
+set background=dark
 endtry
-]]-- OceanicNext
-  -- colorscheme tokyonight-night
+]]) -- OceanicNext
+-- colorscheme tokyonight-night

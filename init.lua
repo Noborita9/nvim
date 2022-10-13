@@ -1,7 +1,7 @@
 require("impatient")
 require("user.options")
-require("user.colorscheme")
 require("user.keybinds")
+require("user.tokyonight")
 require("user.plugins")
 require("user.autopairs")
 require("user.nvim-tree")

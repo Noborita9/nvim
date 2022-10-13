@@ -8,7 +8,7 @@ local options = {
 	scrolloff = 8,
 	sidescrolloff = 10,
 	guifont = "JetBrainsMono Nerd Font:h13",
-	timeoutlen = 200,
+	timeoutlen = 300,
 	updatetime = 750,
 	swapfile = false,
 	splitright = true,
@@ -26,7 +26,7 @@ local options = {
 	fileencoding = "utf-8",
 	pumheight = 10,
 	smartcase = true,
-	smartindent = true,
+	smartindent = false,
 	undofile = true,
 	writebackup = false,
 	expandtab = true,
@@ -34,7 +34,9 @@ local options = {
 	signcolumn = "yes",
 	lazyredraw = true,
 	ttyfast = true,
+	syntax = "on",
 }
+
 
 vim.opt.shortmess:append("c")
 
@@ -44,4 +46,3 @@ end
 
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
-

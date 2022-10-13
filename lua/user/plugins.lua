@@ -53,6 +53,7 @@ return require("packer").startup(function()
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
+	use("Vimjas/vim-python-pep8-indent")
 
 	use("nvim-treesitter/nvim-treesitter-context")
 	-- Git intrgrations
