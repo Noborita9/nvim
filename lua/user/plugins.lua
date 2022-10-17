@@ -1,5 +1,7 @@
 vim.cmd([[packadd packer.nvim]])
 
+-- TODO: Categorize plugins again, its messy
+
 return require("packer").startup(function()
 	-- Packer manages itself
 	use("wbthomason/packer.nvim")
@@ -64,5 +66,9 @@ return require("packer").startup(function()
 
 	-- GOTTA GO FAST
 	use("lewis6991/impatient.nvim")
+	use("nathom/filetype.nvim")
 	-- Others
+
+	use("RRethy/vim-illuminate")
+    use("norcalli/nvim-colorizer.lua")
 end)
