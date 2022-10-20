@@ -4,5 +4,6 @@ if not ok_status then
 end
 
 require("user.lsp.mason")
---[[ require("user.lsp.config") ]]
+-- require("user.lsp.lspconfig")
 require("user.lsp.null_ls")
+

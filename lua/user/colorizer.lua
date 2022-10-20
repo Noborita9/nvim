@@ -4,10 +4,19 @@ if not ok_status then
 end
 
 colorizer.setup({
-    "css";
-    "javascript";
-    "lua";
-    html = {
-        mode = "background";
-    }
+	javascript = {
+		mode = "foreground",
+	},
+	css = {
+		mode = "foreground",
+	},
+	lua = {
+		mode = "foreground",
+	},
+	html = {
+		mode = "foreground",
+	},
+	python = {
+		mode = "foreground",
+	},
 })

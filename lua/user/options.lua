@@ -9,7 +9,7 @@ local options = {
 	sidescrolloff = 10,
 	guifont = "JetBrainsMono Nerd Font:h13",
 	timeoutlen = 300,
-	updatetime = 750,
+	updatetime = 100,
 	swapfile = false,
 	splitright = true,
 	splitbelow = true,
@@ -32,8 +32,6 @@ local options = {
 	expandtab = true,
 	numberwidth = 4,
 	signcolumn = "yes",
-	lazyredraw = true,
-	ttyfast = true,
 	syntax = "on",
 }
 

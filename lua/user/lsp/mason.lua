@@ -14,7 +14,8 @@ if not lspconfig_ok_status then
 end
 
 vim.diagnostic.config({
-	virtual_text = false,
+	virtual_text = true,
+	update_in_insert = true,
 	float = {
 		focuseable = false,
 	},
@@ -26,11 +27,11 @@ local on_attach_func = function()
 	vim.keymap.set("n", "gl", vim.diagnostic.open_float, { buffer = 0 })
 	vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { buffer = 0 })
 end
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 mason.setup()
 mason_lspconfig.setup_handlers({
 	function(server_name)
-		local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 		if server_name == "sumneko_lua" then
 			lspconfig[server_name].setup({
 				on_attach = on_attach_func,
