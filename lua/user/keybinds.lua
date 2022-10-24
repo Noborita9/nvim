@@ -75,3 +75,6 @@ keymap("n", "<Leader>s", ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
 keymap("n", "<Leader>d", ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
 keymap("n", "<Leader>f", ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
 
+-- Toggler
+keymap("n", "<Leader>li", ":lua require('nvim-toggler').toggle()<CR>", opts)
+
