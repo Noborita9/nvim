@@ -14,7 +14,7 @@ if not lspconfig_ok_status then
 end
 
 vim.diagnostic.config({
-	virtual_text = true,
+	virtual_text = false,
 	update_in_insert = true,
 	float = {
 		focuseable = false,
