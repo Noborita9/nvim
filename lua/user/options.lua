@@ -32,7 +32,6 @@ local options = {
 	expandtab = true,
 	numberwidth = 4,
 	signcolumn = "yes",
-	syntax = "on",
 }
 
 

@@ -24,8 +24,8 @@ return require("packer").startup(function()
 		tag = "nightly", -- optional, updated every week. (see issue #1193)
 	})
 
-    -- Status bar
-    use("nvim-lualine/lualine.nvim")
+	-- Status bar
+	use("nvim-lualine/lualine.nvim")
 
 	-- Completition
 	use("windwp/nvim-autopairs")
@@ -72,8 +72,6 @@ return require("packer").startup(function()
 	use("nathom/filetype.nvim")
 
 	-- Others
-    use("nguyenvukhang/nvim-toggler")
-	use("RRethy/vim-illuminate")
+	use("nguyenvukhang/nvim-toggler")
 	use("norcalli/nvim-colorizer.lua")
-
 end)
