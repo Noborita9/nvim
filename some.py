@@ -1,6 +1,5 @@
-data = {
-    "name": "pedro",
-}
+from numpy import array
 
-for key, value in data.items():
-    print(key, value)
+
+class SomeClass():
+    pass

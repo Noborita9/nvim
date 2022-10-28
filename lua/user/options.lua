@@ -1,45 +1,66 @@
 local options = {
+	-- Tabs
+	softtabstop = 4,
+	tabstop = 4,
+	shiftwidth = 4,
+	expandtab = true,
+	-- Numeric
 	number = true,
 	relativenumber = true,
-	shiftwidth = 4,
-	tabstop = 4,
+	-- Cursor
 	guicursor = "",
+	smartindent = true,
 	wrap = false,
-	scrolloff = 8,
-	sidescrolloff = 10,
-	guifont = "JetBrainsMono Nerd Font:h13",
-	timeoutlen = 300,
-	updatetime = 100,
-	swapfile = false,
+
+	-- Splits
 	splitright = true,
 	splitbelow = true,
-	termguicolors = true,
-	cmdheight = 1,
+
+	-- Backups
+	swapfile = false,
+	undofile = true,
+	backup = false,
+
+	-- Search
 	hlsearch = false,
+	incsearch = true,
+
+	-- Scrolls
+	scrolloff = 8,
+	sidescrolloff = 10,
+
+	-- Color
+	termguicolors = true,
+	colorcolumn = "100",
+
+	guifont = "JetBrainsMono Nerd Font:h13",
+	timeoutlen = 300,
+	updatetime = 50,
+	cmdheight = 1,
 	ignorecase = true,
 	showmode = false,
 	showtabline = 4,
-	backup = false,
 	clipboard = "unnamedplus",
-	completeopt = { "menuone", "noselect" },
+	completeopt = { "menu", "menuone", "noselect" },
 	conceallevel = 0,
 	fileencoding = "utf-8",
 	pumheight = 10,
 	smartcase = true,
-	smartindent = false,
-	undofile = true,
 	writebackup = false,
-	expandtab = true,
 	numberwidth = 4,
 	signcolumn = "yes",
+	syntax = "on",
 }
 
-
-vim.opt.shortmess:append("c")
+--vim.opt.shortmess:append("c")
+--vim.cmd([[
+--let g:loaded_python3_prog="/usr/bin/python3.10"
+--let g:python3_host_prog="/usr/bin/python3.10"
+--]])
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
-
-vim.cmd("set whichwrap+=<,>,[,],h,l")
-vim.cmd([[set iskeyword+=-]])
+--
+--vim.cmd("set whichwrap+=<,>,[,],h,l")
+--vim.cmd([[set iskeyword+=-]])

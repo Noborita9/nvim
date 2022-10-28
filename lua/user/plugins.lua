@@ -73,5 +73,4 @@ return require("packer").startup(function()
 
 	-- Others
 	use("nguyenvukhang/nvim-toggler")
-	use("norcalli/nvim-colorizer.lua")
 end)
