@@ -72,5 +72,15 @@ return require("packer").startup(function()
 	use("nathom/filetype.nvim")
 
 	-- Others
+	use({
+		"filipdutescu/renamer.nvim",
+		branch = "master",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 	use("nguyenvukhang/nvim-toggler")
+	use({
+		"filipdutescu/renamer.nvim",
+		branch = "master",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 end)

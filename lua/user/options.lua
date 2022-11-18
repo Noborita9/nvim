@@ -31,7 +31,7 @@ local options = {
 
 	-- Color
 	termguicolors = true,
-	colorcolumn = "100",
+	colorcolumn = "80",
 
 	guifont = "JetBrainsMono Nerd Font:h13",
 	timeoutlen = 300,

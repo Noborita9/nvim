@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 configs.setup({
-	ensure_installed = { "lua", "python", "javascript", "php" }, -- one of "all" or a list of languages
+	ensure_installed = { "lua", "python", "javascript", "php", "bash", "sql" }, -- one of "all" or a list of languages
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	auto_install = true,
 	highlight = {

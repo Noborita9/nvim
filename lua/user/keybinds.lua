@@ -78,3 +78,7 @@ keymap("n", "<Leader>f", ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
 -- Toggler
 keymap("n", "<Leader>li", ":lua require('nvim-toggler').toggle()<CR>", opts)
 
+-- Renamer 
+keymap("i", '<F2>', ':lua require("renamer").rename()<cr>', opts)
+keymap('n', '<leader>rn', ':lua require("renamer").rename()<cr>', opts)
+keymap('v', '<leader>rn', ':lua require("renamer").rename()<cr>', opts)
