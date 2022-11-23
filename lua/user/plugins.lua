@@ -1,4 +1,4 @@
-vim.cmd([[packadd packer.nvim]])
+vim.cmd[[packadd packer.nvim]]
 
 -- TODO: Categorize plugins again, its messy
 

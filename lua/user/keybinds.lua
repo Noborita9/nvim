@@ -40,7 +40,7 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode 
+-- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
@@ -67,7 +67,7 @@ keymap("n", "<Leader>q", ":q<CR>", opts)
 -- nvim-tree
 keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", opts)
 
--- Harpoon 
+-- Harpoon
 keymap("n", "<Leader>h", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
 keymap("n", "<Leader>m", ":lua require('harpoon.mark').add_file()<CR>", opts)
 keymap("n", "<Leader>a", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
@@ -78,7 +78,7 @@ keymap("n", "<Leader>f", ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
 -- Toggler
 keymap("n", "<Leader>li", ":lua require('nvim-toggler').toggle()<CR>", opts)
 
--- Renamer 
-keymap("i", '<F2>', ':lua require("renamer").rename()<cr>', opts)
-keymap('n', '<leader>rn', ':lua require("renamer").rename()<cr>', opts)
-keymap('v', '<leader>rn', ':lua require("renamer").rename()<cr>', opts)
+-- Renamer
+keymap("i", "<F2>", ':lua require("renamer").rename()<cr>', opts)
+keymap("n", "<leader>rn", ':lua require("renamer").rename()<cr>', opts)
+keymap("v", "<leader>rn", ':lua require("renamer").rename()<cr>', opts)
