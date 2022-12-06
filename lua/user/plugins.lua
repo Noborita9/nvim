@@ -1,11 +1,17 @@
-vim.cmd[[packadd packer.nvim]]
+vim.cmd([[packadd packer.nvim]])
 
 -- TODO: Categorize plugins again, its messy
 
 return require("packer").startup(function()
 	-- Packer manages itself
 	use("wbthomason/packer.nvim")
-
+	use("nvim-lua/plenary.nvim")
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.0",
+		-- or                            , branch = '0.1.x',
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 	-- My plugins
 	-- Colorscheme
 	use("folke/tokyonight.nvim") -- 8/10
@@ -46,7 +52,6 @@ return require("packer").startup(function()
 	use("williamboman/mason-lspconfig.nvim")
 
 	-- Formater
-	use("nvim-lua/plenary.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
 
 	-- Comments
