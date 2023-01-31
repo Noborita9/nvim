@@ -9,6 +9,6 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		formatting.stylua,
-		formatting.autopep8,
+		formatting.autoflake,
 	},
 })

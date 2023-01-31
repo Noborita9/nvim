@@ -68,8 +68,8 @@ keymap("n", "<Leader>q", ":q<CR>", opts)
 keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Harpoon
-keymap("n", "<Leader>h", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
-keymap("n", "<Leader>m", ":lua require('harpoon.mark').add_file()<CR>", opts)
+keymap("n", "<Leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
+keymap("n", "<Leader>h", ":lua require('harpoon.mark').add_file()<CR>", opts)
 keymap("n", "<Leader>a", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
 keymap("n", "<Leader>s", ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
 keymap("n", "<Leader>d", ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
@@ -85,8 +85,22 @@ keymap("v", "<leader>rn", ':lua require("renamer").rename()<cr>', opts)
 
 -- Telescope
 
+-- Should really change this but who knows
 local telescope = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
 vim.keymap.set('n', '<leader>fg', telescope.live_grep, {})
 vim.keymap.set('n', '<leader>fb', telescope.buffers, {})
 vim.keymap.set('n', '<leader>fh', telescope.help_tags, {})
+
+-- Mind
+keymap("n", "<leader>mm", ':MindOpenMain<CR>', opts)
+keymap("n", "<leader>mn", ':MindClose<CR>', opts)
+
+-- Project Manager
+
+keymap("n", "<leader>pm", ':Telescope projects<CR>', opts)
+keymap("n", "<leader>ps", ':ProjectRoot<CR>', opts)
+
+-- Gitsigns
+
+keymap("n", "<leader>bl", ":Gitsigns blame_line<CR>", opts)

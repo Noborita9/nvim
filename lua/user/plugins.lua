@@ -57,6 +57,7 @@ return require("packer").startup(function()
 	-- Comments
 	use("numToStr/Comment.nvim")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use("folke/todo-comments.nvim")
 
 	-- Code organization
 	use({
@@ -83,4 +84,16 @@ return require("packer").startup(function()
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 	use("nguyenvukhang/nvim-toggler")
+
+	-- Note Taking
+	use({
+		"phaazon/mind.nvim",
+		branch = "v2.2",
+		requires = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("mind").setup()
+		end,
+	})
+	use("ahmedkhalf/project.nvim")
+    use("chrisbra/NrrwRgn")
 end)
