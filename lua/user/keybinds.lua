@@ -83,6 +83,9 @@ keymap("i", "<F2>", ':lua require("renamer").rename()<cr>', opts)
 keymap("n", "<leader>rn", ':lua require("renamer").rename()<cr>', opts)
 keymap("v", "<leader>rn", ':lua require("renamer").rename()<cr>', opts)
 
+-- Format
+keymap("n", "<leader>lf", ':LspZeroFormat<cr>', opts)
+
 -- Telescope
 
 -- Should really change this but who knows
