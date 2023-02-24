@@ -34,25 +34,6 @@ return require("packer").startup(function()
 	-- Completition
 	use("windwp/nvim-autopairs")
 
-
-	-- CMP
-    use({
-        "VonHeikemen/lsp-zero.nvim",
-        branch = "v1.x",
-        requires = {
-            {use("neovim/nvim-lspconfig")},
-            {use("williamboman/mason.nvim")},
-            {use("williamboman/mason-lspconfig.nvim")},
-            {use("hrsh7th/nvim-cmp")},
-            {use("hrsh7th/cmp-nvim-lsp")},
-            {use("hrsh7th/cmp-buffer")},
-            {use("hrsh7th/cmp-path")},
-            {use("hrsh7th/cmp-cmdline")},
-            {use("hrsh7th/cmp-nvim-lua")},
-            {use("L3MON4D3/LuaSnip")},
-            {use("rafamadriz/friendly-snippets")},
-        }
-    })
 	use("saadparwaiz1/cmp_luasnip")
 
 	-- LSP
@@ -102,4 +83,25 @@ return require("packer").startup(function()
 	})
 	use("ahmedkhalf/project.nvim")
     use("chrisbra/NrrwRgn")
+    use("leafo/moonscript-vim")
+
+	-- CMP
+    -- NOTE: This breaks packer, check it out later
+    use({
+        "VonHeikemen/lsp-zero.nvim",
+        branch = "v1.x",
+        requires = {
+            {use("neovim/nvim-lspconfig")},
+            {use("williamboman/mason.nvim")},
+            {use("williamboman/mason-lspconfig.nvim")},
+            {use("hrsh7th/nvim-cmp")},
+            {use("hrsh7th/cmp-nvim-lsp")},
+            {use("hrsh7th/cmp-buffer")},
+            {use("hrsh7th/cmp-path")},
+            {use("hrsh7th/cmp-cmdline")},
+            {use("hrsh7th/cmp-nvim-lua")},
+            {use("L3MON4D3/LuaSnip")},
+            {use("rafamadriz/friendly-snippets")},
+        }
+    })
 end)
