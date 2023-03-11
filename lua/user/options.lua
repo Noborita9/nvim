@@ -1,5 +1,5 @@
 local options = {
-	-- Tabs
+	-- Tab
 	softtabstop = 4,
 	tabstop = 4,
 	shiftwidth = 4,
@@ -63,4 +63,4 @@ for k, v in pairs(options) do
 end
 --
 --vim.cmd("set whichwrap+=<,>,[,],h,l")
---vim.cmd([[set iskeyword+=-]])
+--vim.cmd([[set iskeyword+=-]]

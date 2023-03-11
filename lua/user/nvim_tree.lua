@@ -1,17 +1,17 @@
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
-if not status_ok then
+local ok_status, nvim_tree = pcall(require, "nvim-tree")
+if not ok_status then
 	return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
+local ok_status_config, nvim_tree_config = pcall(require, "nvim-tree.config")
+if not ok_status_config then
 	return
 end
+
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup({
-	open_on_setup = true,
 	update_focused_file = {
 		enable = true,
 		update_cwd = true,
@@ -63,10 +63,7 @@ nvim_tree.setup({
 				{ key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
 				{ key = "h", cb = tree_cb("close_node") },
 				{ key = "v", cb = tree_cb("vsplit") },
-				{ key = "u", action = "dir_up" },
-			},
-		},
-	},
+				{ key = "u", action = "dir_up" },},},},
 	actions = {
 		open_file = {
 			quit_on_open = true,
@@ -76,3 +73,13 @@ nvim_tree.setup({
 		dotfiles = false,
 	},
 })
+
+local function open_nvim_tree(data)
+  local dir = vim.fn.isdirectory(data.file) == 1
+  if not dir then
+    return
+  end
+  require("nvim-tree.api").tree.open()
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })

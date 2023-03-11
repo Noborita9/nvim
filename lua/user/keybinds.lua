@@ -1,109 +1,29 @@
-local opts = { noremap = true, silent = true }
+local bind = vim.keymap.set
 
-local term_opts = { silent = true }
 
--- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+bind("n", "<leader>e", ":NvimTreeToggle<CR>")
 
---Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+bind({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
 
--- Normal --
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+-- Remap for dealing with word wrap
+bind('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+bind('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+bind('i', 'jk', "<ESC>", { silent = true })
 
--- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+bind('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
+bind('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
+bind('n', '<leader>gl', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+bind('n', '<leader>gL', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+bind('n', '<leader>q', ':q<CR>')
+bind('n', '<leader>w', ':w<CR>')
 
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+bind('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+bind('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
+bind('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
+bind('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+bind('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
--- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+-- Formating
 
--- Insert --
--- Press jk fast to exit insert mode
-keymap("i", "jk", "<ESC>", opts)
-
--- Visual --
--- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
-
--- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
-
--- Visual Block --
--- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-
--- Save file and quit
-keymap("n", "<Leader>w", ":w<CR>", opts)
-keymap("n", "<Leader>q", ":q<CR>", opts)
-
--- nvim-tree
-keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", opts)
-
--- Harpoon
-keymap("n", "<Leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
-keymap("n", "<Leader>h", ":lua require('harpoon.mark').add_file()<CR>", opts)
-keymap("n", "<Leader>a", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
-keymap("n", "<Leader>s", ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
-keymap("n", "<Leader>d", ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
-keymap("n", "<Leader>f", ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
-
--- Toggler
-keymap("n", "<Leader>li", ":lua require('nvim-toggler').toggle()<CR>", opts)
-
--- Renamer
-keymap("i", "<F2>", ':lua require("renamer").rename()<cr>', opts)
-keymap("n", "<leader>rn", ':lua require("renamer").rename()<cr>', opts)
-keymap("v", "<leader>rn", ':lua require("renamer").rename()<cr>', opts)
-
--- Format
-keymap("n", "<leader>lf", ':LspZeroFormat<cr>', opts)
-
--- Telescope
-
--- Should really change this but who knows
-local telescope = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
-vim.keymap.set('n', '<leader>fg', telescope.live_grep, {})
-vim.keymap.set('n', '<leader>fb', telescope.buffers, {})
-vim.keymap.set('n', '<leader>fh', telescope.help_tags, {})
-
--- Mind
-keymap("n", "<leader>mm", ':MindOpenMain<CR>', opts)
-keymap("n", "<leader>mn", ':MindClose<CR>', opts)
-
--- Project Manager
-
-keymap("n", "<leader>pm", ':Telescope projects<CR>', opts)
-keymap("n", "<leader>ps", ':ProjectRoot<CR>', opts)
-
--- Gitsigns
-
-keymap("n", "<leader>bl", ":Gitsigns blame_line<CR>", opts)
+bind('n', '<leader>ff', ":FormatWrite<CR>")
