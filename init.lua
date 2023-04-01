@@ -200,7 +200,8 @@ require("lazy").setup({
 
 	-- "gc" to comment visual regions/lines
 	{ "numToStr/Comment.nvim", opts = {} },
-	{ "tjdevries/cyclist.vim" },
+	{ "ThePrimeagen/harpoon", opts = {} },
+	-- { "tjdevries/cyclist.vim" },
 
 	-- Fuzzy Finder (files, lsp, etc)
 	{ "nvim-telescope/telescope.nvim", version = "*", dependencies = { "nvim-lua/plenary.nvim" } },
@@ -232,60 +233,25 @@ require("lazy").setup({
 }, {})
 
 -- [[ Setting options ]]
--- See `:help vim.o`
-
--- Set highlight on search
 vim.o.hlsearch = false
-
--- Make line numbers default
+vim.o.mouse = "a"
+vim.o.clipboard = "unnamedplus"
+vim.o.breakindent = true
+vim.o.undofile = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.updatetime = 250
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+vim.o.completeopt = "menuone,noselect"
+vim.o.termguicolors = true
+vim.wo.signcolumn = "yes"
 vim.wo.number = true
 vim.wo.relativenumber = true
 
--- Enable mouse mode
-vim.o.mouse = "a"
-
--- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
-vim.o.clipboard = "unnamedplus"
-
--- Enable break indent
-vim.o.breakindent = true
-
--- Save undo history
-vim.o.undofile = true
-
--- Case insensitive searching UNLESS /C or capital in search
-vim.o.ignorecase = true
-vim.o.smartcase = true
-
--- Keep signcolumn on by default
-vim.wo.signcolumn = "yes"
-
--- Decrease update time
-vim.o.updatetime = 250
-
-vim.o.timeout = true
-vim.o.timeoutlen = 300
-
--- Set completeopt to have a better completion experience
-
-vim.o.completeopt = "menuone,noselect"
-
--- NOTE: You should make sure your terminal supports this
-vim.o.termguicolors = true
-
--- [[ Basic Keymaps ]]
-
--- Keymaps for better default experience
-
--- See `:help vim.keymap.set()`
-
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
+
 require("telescope").setup({
 	defaults = {
 		mappings = {
@@ -297,31 +263,20 @@ require("telescope").setup({
 	},
 })
 
--- Enable telescope fzf native, if installed
 pcall(require("telescope").load_extension, "fzf")
 
--- See `:help telescope.builtin`
 vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
 vim.keymap.set("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" })
 vim.keymap.set("n", "<leader>/", function()
-	-- You can pass additional configuration to telescope to change theme, layout, etc.
 	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
 		winblend = 10,
-
 		previewer = false,
 	}))
 end, { desc = "[/] Fuzzily search in current buffer" })
 
--- [[ Configure Treesitter ]]
-
--- See `:help nvim-treesitter`
 require("nvim-treesitter.configs").setup({
-	-- Add languages to be installed here that you want installed for treesitter
 	ensure_installed = { "c", "cpp", "go", "lua", "python", "rust", "tsx", "typescript", "help", "vim" },
-
-	-- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
 	auto_install = false,
-
 	highlight = { enable = true },
 	indent = { enable = true, disable = { "python" } },
 	incremental_selection = {
@@ -380,15 +335,8 @@ require("nvim-treesitter.configs").setup({
 })
 
 -- LSP settings.
---  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
-	-- NOTE: Remember that lua is a real programming language, and as such it is possible
-	-- to define small helper and utility functions so you don't have to repeat yourself
 
-	-- many times.
-	--
-	-- In this case, we create a function that lets us more easily define mappings specific
-	-- for LSP related items. It sets the mode, buffer and description for us each time.
+local on_attach = function(_, bufnr)
 	local nmap = function(keys, func, desc)
 		if desc then
 			desc = "LSP: " .. desc
@@ -408,11 +356,9 @@ local on_attach = function(_, bufnr)
 	nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
 	nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
-	-- See `:help K` for why this keymap
 	nmap("K", vim.lsp.buf.hover, "Hover Documentation")
 	nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
 
-	-- Lesser used LSP functionality
 	nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 	nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
 	nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
@@ -427,19 +373,7 @@ local on_attach = function(_, bufnr)
 	end, { desc = "Format current buffer with LSP" })
 end
 
--- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-
---
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-	-- clangd = {},
-	-- gopls = {},
-	-- pyright = {},
-	-- rust_analyzer = {},
-	-- tsserver = {},
-
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
@@ -506,7 +440,6 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "s" }),
-
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
@@ -529,5 +462,3 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 require("user.options")
 require("user.keybinds")
 require("user.nvim_tree")
--- -- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et

@@ -31,7 +31,7 @@ local options = {
 
 	-- Color
 	termguicolors = true,
-	colorcolumn = "80",
+	colorcolumn = "120",
 
 	guifont = "JetBrainsMono Nerd Font:h13",
 	timeoutlen = 300,
@@ -61,6 +61,3 @@ local options = {
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
---
---vim.cmd("set whichwrap+=<,>,[,],h,l")
---vim.cmd([[set iskeyword+=-]]
