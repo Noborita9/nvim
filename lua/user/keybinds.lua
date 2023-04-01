@@ -1,5 +1,8 @@
 local bind = vim.keymap.set
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 local opts = { noremap = true, silent = true }
 
 bind("n", "<leader>e", ":NvimTreeToggle<CR>")

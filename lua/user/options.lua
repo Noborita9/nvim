@@ -50,13 +50,8 @@ local options = {
 	numberwidth = 4,
 	signcolumn = "yes",
 	syntax = "on",
+	breakindent = true,
 }
-
---vim.opt.shortmess:append("c")
---vim.cmd([[
---let g:loaded_python3_prog="/usr/bin/python3.10"
---let g:python3_host_prog="/usr/bin/python3.10"
---]])
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
