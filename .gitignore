@@ -1,2 +1,5 @@
 testing_files
 plugin
+env
+
+__pycache__
