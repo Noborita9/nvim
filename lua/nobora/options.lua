@@ -28,7 +28,7 @@ local options = {
     scrolloff = 8,
     signcolumn = "yes",
     updatetime = 50,
-    colorcolumn = "80",
+    colorcolumn = "100",
     completeopt = { "menu", "menuone", "noselect" },
 }
 for k, v in pairs(options) do
@@ -36,5 +36,5 @@ for k, v in pairs(options) do
 end
 
 vim.opt.isfname:append("@-@")
-
+vim.g.python3_host_prog = "/home/nobora/.config/nvim/env/bin/python"
 
