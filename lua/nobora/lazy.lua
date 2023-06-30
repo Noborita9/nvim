@@ -106,7 +106,5 @@ require("lazy").setup({
     {
         "mhartington/formatter.nvim"
     },
-    {
-        "ianxek/cone.vim"
-    }
 })
+
