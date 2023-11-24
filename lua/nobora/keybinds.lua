@@ -47,3 +47,7 @@ bind("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- Format
 bind("n", "<leader>fc", ":Format<CR>", opts)
 
+-- Telescope
+local telescope = require("telescope.builtin")
+bind("n", "<leader>fw", telescope.live_grep, opts)
+bind("n", "<leader>ff", telescope.find_files, opts)
