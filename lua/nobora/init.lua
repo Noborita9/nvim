@@ -1,4 +1,4 @@
 require("nobora.options")
 require("nobora.lazy")
-require("nobora.plugins")
 require("nobora.keybinds")
+require("nobora.plugins")
