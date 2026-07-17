@@ -50,6 +50,22 @@ nvim_tree.setup({
 	},
 	renderer = {
 		group_empty = true,
+		icons = {
+			show = {
+				folder = false,
+				file = false,
+				git = false,
+				folder_arrow = false,
+			},
+			web_devicons = {
+				file = {
+					enable = false,
+				},
+				folder = {
+					enable = false,
+				},
+			},
+		},
 	},
 	filters = {
 		dotfiles = false,

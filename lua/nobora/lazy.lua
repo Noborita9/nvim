@@ -33,10 +33,6 @@ require("lazy").setup({
 		},
 	},
 	{
-		"nvim-tree/nvim-web-devicons",
-		lazy = true,
-	},
-	{
 		"folke/tokyonight.nvim",
 		priority = 1000,
 		lazy = false,
@@ -77,13 +73,8 @@ require("lazy").setup({
 		"terrortylor/nvim-comment",
 	},
 	{
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-		},
-	},
-	{
 		"nvim-treesitter/nvim-treesitter",
+        branch = "main",
 		build = ":TSUpdate",
 	},
 	{

@@ -1,9 +1,9 @@
 local bind = vim.keymap.set
 
 local opts = {
-    noremap = true,
-    silent = true,
-    nowait = true
+	noremap = true,
+	silent = true,
+	nowait = true,
 }
 
 bind("", "<Space>", "<Nop>", opts)
@@ -43,9 +43,9 @@ bind("x", "K", ":move '<-2<CR>gv-gv", opts)
 bind("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 bind("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
-
 -- Format
 bind("n", "<leader>fc", ":Format<CR>", opts)
+
 
 -- Telescope
 local telescope = require("telescope.builtin")

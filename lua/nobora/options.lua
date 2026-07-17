@@ -9,6 +9,7 @@ local options = {
 	tabstop = 4,
 	softtabstop = 4,
 	shiftwidth = 4,
+    shiftround = true,
 	expandtab = true,
     wrap = false,
 
@@ -21,6 +22,7 @@ local options = {
     -- Search
     hlsearch = false,
     incsearch = true,
+    smartcase = true,
     -- Color
     termguicolors = true,
 
@@ -30,6 +32,7 @@ local options = {
     updatetime = 50,
     colorcolumn = "100",
     completeopt = { "menu", "menuone", "noselect" },
+    splitright = true,
 }
 for k, v in pairs(options) do
 	vim.opt[k] = v

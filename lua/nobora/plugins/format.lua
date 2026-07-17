@@ -53,7 +53,7 @@ return
 		-- any filetype
 
 		python = {
-			require("formatter.filetypes.python").black,
+			require("formatter.filetypes.python").ruff,
 		},
 		rust = {
 			require("formatter.filetypes.rust").rustfmt,
@@ -72,6 +72,9 @@ return
 		},
 		json = {
 			require("formatter.filetypes.json").prettier,
+		},
+		go = {
+			require("formatter.filetypes.go").gofmt,
 		},
 		["*"] = {
 			-- "formatter.filetypes.any" defines default configurations for any
